@@ -13,7 +13,7 @@ const database = {
         price: 120
     },{
         id: 4,
-        color: "Sring Green",
+        color: "Spring Green",
         price: 130
     }],
     seats: [{
@@ -78,5 +78,35 @@ const database = {
         style: "Spoke",
         wheelColor: "Black",
         price: 320
+    }],
+    orders: [{
+        id: 1,
+        paintId: 1,
+        seatId: 1,
+        techId: 1,
+        wheelId: 1,
+        time: 11111000000111
+
+
     }]
+}
+
+export const getPaints = () => {
+    return [...database.paints]
+}
+
+export const getSeats = () => {
+    return [...database.seats]
+}
+
+export const getTech = () => {
+    return [...database.dashboard]
+}
+
+export const getWheels = () => {
+    return [...database.wheels]
+}
+
+export const getOrders = () => {
+    return [...database.orders]
 }
