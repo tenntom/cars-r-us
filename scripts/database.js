@@ -3,15 +3,15 @@ const database = {
         id: 1,
         color: "Silver",
         price: 100
-    },{
+    }, {
         id: 2,
         color: "Midnight Blue",
         price: 110
-    },{
+    }, {
         id: 3,
         color: "Firebrick Red",
         price: 120
-    },{
+    }, {
         id: 4,
         color: "Spring Green",
         price: 130
@@ -20,18 +20,18 @@ const database = {
         id: 1,
         color: "Beige",
         material: "Fabric",
-        price: 200 
-    },{
+        price: 200
+    }, {
         id: 2,
         color: "Charcoal",
         material: "Fabric",
         price: 210
-    },{
+    }, {
         id: 3,
         color: "White",
         material: "Leather",
         price: 260
-    },{
+    }, {
         id: 4,
         color: "Black",
         material: "Leather",
@@ -41,15 +41,15 @@ const database = {
         id: 1,
         tech: "Basic Package",
         price: 300
-    },{
+    }, {
         id: 2,
         tech: "Navigation Package",
         price: 400
-    },{
+    }, {
         id: 3,
         tech: "Visibility Package",
         price: 450
-    },{
+    }, {
         id: 4,
         tech: "Ultra Package",
         price: 550
@@ -57,22 +57,22 @@ const database = {
     wheels: [{
         id: 1,
         size: 17,
-        style: "Radial" ,
-        wheelColor:"Standard",
+        style: "Radial",
+        wheelColor: "Standard",
         price: 200
-    },{
+    }, {
         id: 2,
         size: 17,
         style: "Radial",
         wheelColor: "Black",
         price: 240
-    },{
+    }, {
         id: 3,
         size: 18,
         style: "Spoke",
-        wheelColor:"Silver",
+        wheelColor: "Silver",
         price: 300
-    },{
+    }, {
         id: 4,
         size: 18,
         style: "Spoke",
@@ -86,9 +86,8 @@ const database = {
         techId: 1,
         wheelId: 1,
         time: 11111000000111
-
-
-    }]
+    }],
+    orderBuilder: {}
 }
 
 export const getPaints = () => {
@@ -109,4 +108,39 @@ export const getWheels = () => {
 
 export const getOrders = () => {
     return [...database.orders]
+}
+
+export const setPaint = (id) => {
+    database.orderBuilder.paintId = id
+}
+
+export const setSeat = (id) => {
+    database.orderBuilder.seatId = id
+}
+
+export const setTech = (id) => {
+    database.orderBuilder.techId = id
+}
+
+export const setWheels = (id) => {
+    database.orderBuilder.wheelId = id
+}
+
+
+export const addOrder = () => {
+    const newOrder = { ...database.orderBuilder }
+
+    newOrder.id = database.orders.length > 0 ?
+        [...database.orders].pop().id + 1
+        : 1
+
+    newOrder.timestamp = Date.now()
+
+    database.orders.push(newOrder)
+
+    console.log(database)
+
+    database.orderBuilder = {}
+
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
