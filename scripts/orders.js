@@ -1,11 +1,15 @@
 import { getOrders, getPaints, getSeats, getTech, getWheels } from "./database.js"
 
+
+// shoppingCart brings all the information together to be displayed in the Orders section. 
+
 const shoppingCart = (order) => {
     const paints = getPaints ()
     const seats = getSeats()
     const tech = getTech()
     const wheels = getWheels()
 
+    //These find methods will return the entire object based on the id number so that information is available in the orders display.
     const foundPaint = paints.find(
         (paint) => {
             return paint.id === order.paintId
@@ -30,6 +34,7 @@ const shoppingCart = (order) => {
         }
     )
 
+    //This adds up all the prices.
     const totalCost = foundWheel.price + foundPaint.price + foundTech.price + foundSeat.price
 
     const costString = totalCost.toLocaleString ("en-US", {
@@ -38,29 +43,7 @@ const shoppingCart = (order) => {
     })
 
     const dateObject = new Date(order.timestamp)
-    //     hour: '2 digit',
-    //     minute: '2-digit',
-    //     second: '2-digit'
-    // }
-    // )
-    
-    // order.timestamp
-
     const timeFormatted = dateObject.toLocaleString()
-
-    
-
-    // const timeFormatted = dateObject.toLocaleString("en-US", {
-    //     day: "numeric",
-    //     year: "numeric",
-    //     hour: "numeric",
-    //     minute: "numeric",
-    //     second: "numeric"
-    // })
-    // const timeFormatted = dateObject.toLocaleString("en-US", {
-
-    // })
-
 
 
     return `
@@ -71,7 +54,7 @@ const shoppingCart = (order) => {
 }
 
 
-
+//this function iterates through the orders and produces the order sentence above for each order using .map.
 export const carOrders = () => {
     const showOrders = getOrders()
     let html = "<ul>"

@@ -12,6 +12,9 @@ document.addEventListener(
     }
 )
 
+//setTech function adds the matched item to the Order Builder
+
+//carTech sets up the radio button list
 
 export const carTech = () => {
     let html = "<ul>"

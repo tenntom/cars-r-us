@@ -1,7 +1,6 @@
 .choices {
     display: flex;
     flex-wrap: wrap;
-    /* flex-basis: 24%; */
     justify-content: space-around;
 }
 
@@ -12,9 +11,7 @@
     border-color: rgb(231, 22, 22);
     padding: 1em;
     margin: 1em;
-    /* justify-content: space-around; */
-    /* padding: 1em;
-    margin: 1em; */
+
 }
 
 ul {
@@ -38,7 +35,6 @@ h1 {
 }
 
 #orderButton {
-    /* margin-left: 5em; */
     text-align: center;
     margin-top: 2em;
     margin-bottom: 2em;

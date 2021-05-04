@@ -12,6 +12,10 @@ document.addEventListener(
     }
 )
 
+//setSeat function adds the matched item to the Order Builder
+
+//carSeat creates the set radio buttons
+
 export const carSeat = () => {
     let html = "<ul>"
 

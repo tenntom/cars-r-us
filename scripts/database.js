@@ -129,6 +129,8 @@ export const setWheels = (id) => {
 }
 
 
+// This function takes the object from orderbuilder and puts it in the order array.
+//It also checks to make sure all items are selected and removes any items in the orderBuilder once it becomes an order.
 export const addOrder = () => {
     if (
         "paintId" in database.orderBuilder &&
@@ -147,12 +149,10 @@ export const addOrder = () => {
 
     database.orders.push(newOrder)
 
-    // console.log(database)
-
     database.orderBuilder = {}
 
     document.dispatchEvent(new CustomEvent("stateChanged"))
     } else {
-        window.alert("Please complete your selections before placing an order, bro.")
+        window.alert("Please complete your selections before placing an order.")
     }
 }

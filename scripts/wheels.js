@@ -15,6 +15,10 @@ document.addEventListener(
     }
 )
 
+//setPaint function adds the matched item to the Order Builder
+
+//carWheels function 
+
 export const carWheels = () => {
     let html = "<ul>"
 
