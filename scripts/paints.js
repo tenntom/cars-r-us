@@ -16,7 +16,7 @@ document.addEventListener(
 export const carPaint = () => {
     let html = "<ul>"
 
-    //map interates carePaint
+    //map interates carPaint
 
     const paintStuff = paints.map((paint) => {
         return `

@@ -79,14 +79,16 @@ const database = {
         wheelColor: "Black",
         price: 320
     }],
-    orders: [{
+    orders: [
+        {
         id: 1,
         paintId: 1,
         seatId: 1,
         techId: 1,
         wheelId: 1,
         timestamp: 1620144693000
-    }],
+    }
+],
     orderBuilder: {}
 }
 
@@ -128,9 +130,18 @@ export const setWheels = (id) => {
 
 
 export const addOrder = () => {
+    if (
+        "paintId" in database.orderBuilder &&
+        "techId" in database.orderBuilder &&
+        "wheelId" in database.orderBuilder &&
+        "seatId" in database.orderBuilder
+    ) {
     const newOrder = { ...database.orderBuilder }
 
-    newOrder.id = [...database.orders].pop().id + 1
+    newOrder.id = (
+        database.orders.length > 0
+        ? [...database.orders].pop().id + 1
+        : 1)
 
     newOrder.timestamp = Date.now()
 
@@ -141,4 +152,7 @@ export const addOrder = () => {
     database.orderBuilder = {}
 
     document.dispatchEvent(new CustomEvent("stateChanged"))
+    } else {
+        window.alert("Please complete your selections before placing an order, bro.")
+    }
 }
