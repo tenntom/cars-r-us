@@ -1,0 +1,46 @@
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-basis: 24%; */
+    justify-content: space-around;
+}
+
+.options {
+    flex-basis: 30%;
+    border-style:solid;
+    border-width: 2px;
+    border-color: rgb(231, 22, 22);
+    padding: 1em;
+    margin: 1em;
+    /* justify-content: space-around; */
+    /* padding: 1em;
+    margin: 1em; */
+}
+
+ul {
+    list-style-type: none;
+}
+
+.option--heading {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.orders {
+    margin-left: 4em;
+}
+
+.orderButton-section {
+    margin-left: 10em;
+}
+
+#orderButton {
+    /* margin-left: 5em; */
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: large;
+}

@@ -1,9 +1,19 @@
 
 
 
-import { getWheels } from "./database.js"
+import { getWheels, setWheels } from "./database.js"
 
 const wheels = getWheels()
+
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "wheel") {
+            const[,wheelId] = event.target.value.split("--")
+            setWheels(parseInt(wheelId))
+        }
+    }
+)
 
 export const carWheels = () => {
     let html = "<ul>"
@@ -11,7 +21,7 @@ export const carWheels = () => {
     const wheelStuff = wheels.map( (wheel) => {
         return `
         <li>
-        <input type="radio" name="wheel" value="${wheel.id}">${wheel.style} ${wheel.wheelColor}
+        <input type="radio" name="wheel" value="wheel--${wheel.id}">${wheel.style} ${wheel.wheelColor}
         </li>
         `
     })
