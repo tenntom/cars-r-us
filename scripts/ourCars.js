@@ -3,9 +3,10 @@ import { carPaint } from "./paints.js"
 import { carSeat } from "./seats.js"
 import { carWheels } from "./wheels.js"
 import { carOrders } from "./orders.js"
+import { addOrder } from "./database.js"
 
 document.addEventListener(
-    "button",
+    "click",
     (event) => {
         if (event.target.id === "orderButton") {
             addOrder()
@@ -36,12 +37,12 @@ export const ourCars = () => {
                  ${carWheels()}
             </section>
         </article>
-        <article id="orderButton-section">
+        <article class="orderButton-section">
         <button id="orderButton">Place Order</button>
         </article>
 
         <article class="orders">
-        <h2><em>Orders</em></h2>
+        <h2>Orders</h2>
         <p>${carOrders()}</p>
 
         </article>

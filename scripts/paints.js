@@ -6,7 +6,8 @@ document.addEventListener(
     "change",
     (event) => {
         if (event.target.name === "paint") {
-            const [prompt, paintId] = event.target.value.split("--")
+            const [, paintId] = event.target.value.split("--")
+
             setPaint(parseInt(paintId))
         }
     }
@@ -14,6 +15,8 @@ document.addEventListener(
 
 export const carPaint = () => {
     let html = "<ul>"
+
+    //map interates carePaint
 
     const paintStuff = paints.map((paint) => {
         return `

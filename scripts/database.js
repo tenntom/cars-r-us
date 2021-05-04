@@ -85,7 +85,7 @@ const database = {
         seatId: 1,
         techId: 1,
         wheelId: 1,
-        time: 11111000000111
+        timestamp: 1620144693000
     }],
     orderBuilder: {}
 }
@@ -130,15 +130,13 @@ export const setWheels = (id) => {
 export const addOrder = () => {
     const newOrder = { ...database.orderBuilder }
 
-    newOrder.id = database.orders.length > 0 ?
-        [...database.orders].pop().id + 1
-        : 1
+    newOrder.id = [...database.orders].pop().id + 1
 
     newOrder.timestamp = Date.now()
 
     database.orders.push(newOrder)
 
-    console.log(database)
+    // console.log(database)
 
     database.orderBuilder = {}
 

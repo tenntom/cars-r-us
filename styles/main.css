@@ -32,3 +32,15 @@ h1 {
 .orders {
     margin-left: 4em;
 }
+
+.orderButton-section {
+    margin-left: 10em;
+}
+
+#orderButton {
+    /* margin-left: 5em; */
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: large;
+}
