@@ -1,4 +1,4 @@
-import { getOrders, getPaints, getSeats, getTech, getWheels } from "./database.js"
+import { getOrders, getPaints, getSeats, getTech, getWheels, getStyles } from "./dataAccess.js"
 
 
 // shoppingCart brings all the information together to be displayed in the Orders section. 
@@ -8,6 +8,7 @@ const shoppingCart = (order) => {
     const seats = getSeats()
     const tech = getTech()
     const wheels = getWheels()
+    const styles = getStyles()
 
     //These find methods will return the entire object based on the id number so that information is available in the orders display.
     const foundPaint = paints.find(
@@ -34,8 +35,15 @@ const shoppingCart = (order) => {
         }
     )
 
+    const foundStyle = styles.find(
+        (style) => {
+            return style.id === order.styleId
+        }
+    )
+
     //This adds up all the prices.
-    const totalCost = foundWheel.price + foundPaint.price + foundTech.price + foundSeat.price
+    const baseCost = foundWheel.price + foundPaint.price + foundTech.price + foundSeat.price
+    const totalCost = foundStyle.priceMarkup * baseCost
 
     const costString = totalCost.toLocaleString ("en-US", {
         style: "currency",
@@ -48,7 +56,7 @@ const shoppingCart = (order) => {
 
     return `
     <li>
-    Order ${order.id} was placed on ${dateObject} and includes ${foundWheel.wheelColor} ${foundWheel.style} wheels,  ${foundPaint.color} paint, a ${foundTech.tech} dashboard, and ${foundSeat.color} ${foundSeat.material} seats. The total cost was ${costString}.
+    Order ${order.id} was placed on ${dateObject} and the ${foundStyle.name}includes ${foundWheel.wheelColor} ${foundWheel.style} wheels,  ${foundPaint.color} paint, a ${foundTech.tech} dashboard, and ${foundSeat.color} ${foundSeat.material} seats. The total cost was ${costString}.
     </li>
     `
 }

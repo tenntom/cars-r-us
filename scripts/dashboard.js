@@ -1,4 +1,4 @@
-import { getTech, setTech } from "./database.js"
+import { getTech, setTech } from "./dataAccess.js"
 
 const dashboards = getTech()
 

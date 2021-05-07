@@ -3,7 +3,8 @@ import { carPaint } from "./paints.js"
 import { carSeat } from "./seats.js"
 import { carWheels } from "./wheels.js"
 import { carOrders } from "./orders.js"
-import { addOrder } from "./database.js"
+import { carStyles } from "./carStyles.js"
+import { addOrder } from "./dataAccess.js"
 
 document.addEventListener(
     "click",
@@ -29,17 +30,23 @@ export const ourCars = () => {
                 ${carSeat()}
             </section>
             <section class="choices-dashboards options">
-                <h2 class = "option--heading">Dashboard</h2>
+                <h2 class= "option--heading">Dashboard</h2>
                 ${carTech()}
             </section>
             <section class="choices--wheels options">
-                <h2 class = "option--heading">Wheels</h2>
+                <h2 class= "option--heading">Wheels
+                </h2>
                  ${carWheels()}
             </section>
         </article>
-        <article class="orderButton-section">
-        <button id="orderButton">Place Order</button>
-        </article>
+
+        <section class="choices--styles">
+                 ${carStyles()}
+        </section>
+            
+        <div class="orderButton-section">
+            <button id="orderButton">Place Order</button>
+        </div>
 
         <article class="orders">
         <h2>Orders</h2>

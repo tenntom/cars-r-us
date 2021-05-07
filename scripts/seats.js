@@ -1,4 +1,4 @@
-import { getSeats, setSeat } from "./database.js"
+import { getSeats, setSeat } from "./dataAccess.js"
 
 const seats = getSeats()
 

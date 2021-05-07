@@ -11,6 +11,7 @@
     border-color: rgb(231, 22, 22);
     padding: 1em;
     margin: 1em;
+    font-size: 1.5em;
 
 }
 
@@ -30,13 +31,26 @@ h1 {
     margin-left: 4em;
 }
 
+.styles-list {
+    margin-left: 3em;
+}
+
+.style-item {
+    display: inline-block;
+    font-size: 2em;
+}
+
+/* .style-text {
+    font-size: 10em;
+} */
+
 .orderButton-section {
     margin-left: 10em;
 }
 
 #orderButton {
     text-align: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    font-size: large;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 3em;
 }

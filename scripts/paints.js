@@ -1,4 +1,4 @@
-import { getPaints, setPaint } from "./database.js"
+import { getPaints, setPaint } from "./dataAccess.js"
 
 const paints = getPaints()
 
